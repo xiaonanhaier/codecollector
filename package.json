@@ -90,6 +90,13 @@
     "pretest": "yarn run lint",
     "test": "vscode-test"
   },
+  "bugs": {
+    "url": "https://github.com/xiaonanhaier/codecollector/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xiaonanhaier/codecollector.git"
+  },
   "devDependencies": {
     "@types/vscode": "^1.87.0",
     "@types/mocha": "^10.0.6",
