@@ -1,0 +1,102 @@
+{
+  "name": "codecollector",
+  "icon": "images/icon.png",
+  "displayName": "CodeCollector",
+  "description": "collect code that you like or that is common",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "codecollector.collectCode",
+        "title": "Collect Code"
+      },
+      {
+        "command": "codecollector.collectFile",
+        "title": "Collect file"
+      },
+      {
+        "command": "codecollector.getCodeCollection",
+        "title": "Get Code Collection"
+      },
+      {
+        "command": "codecollector.getFileCollection",
+        "title": "Get File Collection"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorHasSelection",
+          "command": "codecollector.collectCode",
+          "group": "9_cutcopypaste"
+        },
+        {
+          "when": "editorTextFocus",
+          "command": "codecollector.getCodeCollection",
+          "group": "9_cutcopypaste"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "codecollector.collectFile",
+          "group": "5_cutcopypaste"
+        },
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "codecollector.getFileCollection",
+          "group": "5_cutcopypaste"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "CodeCollector",
+      "type": "object",
+      "properties": {
+        "codecollector.pathList": {
+          "type": "array",
+          "default": [],
+          "description": "path list",
+          "item": {
+            "type": "object",
+            "required": [
+              "pathName",
+              "path"
+            ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "description": "file path"
+              },
+              "pathName": {
+                "type": "string",
+                "description": "path name"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "yarn run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.87.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3",
+    "@vscode/test-cli": "^0.0.6",
+    "@vscode/test-electron": "^2.3.9"
+  }
+}
