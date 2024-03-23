@@ -3,6 +3,7 @@
   "icon": "images/icon.png",
   "displayName": "CodeCollector",
   "description": "collect code that you like or that is common",
+  "publisher": "xiaonanhai",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.87.0"
